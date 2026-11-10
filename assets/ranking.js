@@ -4,7 +4,7 @@
 (function () {
   "use strict";
   // URL do app da Web do Apps Script (termina em /exec). Vazio = ranking desligado.
-  var ENDPOINT = window.JOYFONE_RANKING_URL || "";
+  var ENDPOINT = window.JOYFONE_RANKING_URL || "https://script.google.com/macros/s/AKfycbyVGqibAYkVWhy0l1sib9m10hbVCmdA5QNWxzNjY5QitYs1vRHBSuVeROkxBAi7L7VR/exec";
 
   var panel = document.querySelector("[data-ranking]");
   var games = document.querySelector("[data-games]");
@@ -53,24 +53,24 @@
       li.appendChild(n); li.appendChild(s); list.appendChild(li);
     });
   }
-  // Apoiadores: o total de quem aceitou receber novidades e os apelidos de quem escolheu aparecer.
+  // Comunidade Joyfone: o total de quem aceitou receber novidades e os apelidos de quem escolheu aparecer.
   function renderSupporters(sup) {
     if (!sup || !(sup.count > 0)) { supBox.hidden = true; return; }
     supBox.hidden = false;
     supCount.textContent = en
-      ? sup.count + (sup.count === 1 ? " player already gets Joyfone news." : " players already get Joyfone news.")
-      : sup.count + (sup.count === 1 ? " jogador já recebe as novidades do Joyfone." : " jogadores já recebem as novidades do Joyfone.");
+      ? sup.count + (sup.count === 1 ? " player in the Joyfone Community." : " players in the Joyfone Community.")
+      : sup.count + (sup.count === 1 ? " jogador na Comunidade Joyfone." : " jogadores na Comunidade Joyfone.");
     supNames.textContent = "";
     (sup.names || []).forEach(function (n) { var li = document.createElement("li"); li.textContent = n; supNames.appendChild(li); });
   }
 
-  // Tela do celular desenhado: alterna o top 3 do jogo e os apoiadores.
+  // Tela do celular desenhado: alterna o top 3 do jogo e a Comunidade Joyfone.
   function setTicker(game, top, sup) {
     var lines = top.slice(0, 3).map(function (r, i) { return "🏆 " + (i + 1) + "º " + r.nick + " · " + r.score; });
     if (sup && sup.names && sup.names.length) {
       lines.push((en ? "💚 Thanks, " : "💚 Valeu, ") + sup.names.slice(0, 3).join(", ") + "!");
     }
-    if (sup && sup.count > 0) lines.push("💚 " + sup.count + (en ? " supporters" : " apoiadores"));
+    if (sup && sup.count > 0) lines.push("💚 " + sup.count + (en ? " in the Joyfone Community" : " na Comunidade Joyfone"));
     tickerLines = lines;
     tickerIdx = 0;
     if (ticker && lines.length) ticker.textContent = lines[0];
