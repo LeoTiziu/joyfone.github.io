@@ -44,27 +44,29 @@
         </div>
         <p class="fine">Nothing to install on the TV. On a Windows PC, the free Joyfone Receiver makes the computer see your phone as a controller.</p>
       </div>
-      <div class="demo" data-demo="pad" tabindex="0" aria-label="Demo: drag the stick or use the arrow keys to collect stars on the TV. Space boosts.">
+      <div class="demo" data-games tabindex="0" aria-label="Mini games: use the drawn phone's stick and buttons, the keyboard arrows and space, or a controller.">
+        <div class="game-tabs" role="tablist" aria-label="Mini games">
+          <button type="button" role="tab" data-game="ship" aria-selected="true">Space rocks</button>
+          <button type="button" role="tab" data-game="snake" aria-selected="false">Snake</button>
+          <button type="button" role="tab" data-game="cave" aria-selected="false">Caveman</button>
+        </div>
         <div class="tv-frame">
-          <div class="tv-screen">
-            <div class="arena"><i class="star" style="left:72%; top:35%"></i><i class="player" style="left:30%; top:55%"></i></div>
-            <span class="tv-hud">Stars: 0</span>
-          </div>
+          <div class="tv-screen"><canvas class="game-canvas" aria-hidden="true"></canvas></div>
         </div>
         <div class="phone">
           <div class="stick-zone" aria-hidden="true"><i class="stick-knob"></i></div>
-          <p class="phone-mid">Joyfone<br>drag the stick</p>
+          <p class="phone-mid">Joyfone<br>Y pauses</p>
           <div class="faces">
-            <button class="face" type="button" data-btn="y" aria-label="Y button: changes color">Y</button>
-            <button class="face" type="button" data-btn="x" aria-label="X button: changes color">X</button>
-            <button class="face" type="button" data-btn="b" aria-label="B button: changes color">B</button>
-            <button class="face" type="button" data-btn="a" aria-label="A button: boost">A</button>
+            <button class="face" type="button" data-btn="y" aria-label="Y button: pause">Y</button>
+            <button class="face" type="button" data-btn="x" aria-label="X button: same as B">X</button>
+            <button class="face" type="button" data-btn="b" aria-label="B button: throw or attack">B</button>
+            <button class="face" type="button" data-btn="a" aria-label="A button: play, fire or jump">A</button>
           </div>
         </div>
-        <p class="demo-hint">Try it: drag the stick, or use the arrow keys (or WASD) and space. With a controller connected to your PC, Joyfone included, it drives the demo.</p>
+        <p class="demo-hint" data-game-help>Move with the stick, hold A to fire.</p>
+        <p class="demo-hint">Keyboard: arrows or WASD, Space = A, X = B, P = pause. A controller connected to your PC, Joyfone included, works too.</p>
         <p class="pad-status" hidden></p>
-      </div>
-      <button class="video-toggle" type="button" data-video="hero-video">❚❚ Pause background video</button>
+      </div>      <button class="video-toggle" type="button" data-video="hero-video">❚❚ Pause background video</button>
     </div>
   </section>
 
@@ -282,5 +284,6 @@
 </footer>
 <script src="../assets/vendor/qrcode.min.js"></script>
 <script src="../assets/demo.js"></script>
+<script src="../assets/games.js"></script>
 </body>
 </html>

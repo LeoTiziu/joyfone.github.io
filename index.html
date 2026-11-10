@@ -44,27 +44,29 @@
         </div>
         <p class="fine">Na TV não é preciso instalar nada. No PC com Windows, o receptor gratuito do Joyfone faz o computador reconhecer o celular como controle.</p>
       </div>
-      <div class="demo" data-demo="pad" tabindex="0" aria-label="Demonstração: arraste o analógico ou use as setas do teclado para pegar as estrelas na TV. Espaço acelera.">
+      <div class="demo" data-games tabindex="0" aria-label="Minijogos: use o analógico e os botões do celular desenhado, as setas e o espaço do teclado, ou um controle.">
+        <div class="game-tabs" role="tablist" aria-label="Minijogos">
+          <button type="button" role="tab" data-game="ship" aria-selected="true">Nave</button>
+          <button type="button" role="tab" data-game="snake" aria-selected="false">Cobrinha</button>
+          <button type="button" role="tab" data-game="cave" aria-selected="false">Caverna</button>
+        </div>
         <div class="tv-frame">
-          <div class="tv-screen">
-            <div class="arena"><i class="star" style="left:72%; top:35%"></i><i class="player" style="left:30%; top:55%"></i></div>
-            <span class="tv-hud">Estrelas: 0</span>
-          </div>
+          <div class="tv-screen"><canvas class="game-canvas" aria-hidden="true"></canvas></div>
         </div>
         <div class="phone">
           <div class="stick-zone" aria-hidden="true"><i class="stick-knob"></i></div>
-          <p class="phone-mid">Joyfone<br>arraste o analógico</p>
+          <p class="phone-mid">Joyfone<br>Y pausa</p>
           <div class="faces">
-            <button class="face" type="button" data-btn="y" aria-label="Botão Y: muda a cor">Y</button>
-            <button class="face" type="button" data-btn="x" aria-label="Botão X: muda a cor">X</button>
-            <button class="face" type="button" data-btn="b" aria-label="Botão B: muda a cor">B</button>
-            <button class="face" type="button" data-btn="a" aria-label="Botão A: acelera">A</button>
+            <button class="face" type="button" data-btn="y" aria-label="Botão Y: pausa">Y</button>
+            <button class="face" type="button" data-btn="x" aria-label="Botão X: igual ao B">X</button>
+            <button class="face" type="button" data-btn="b" aria-label="Botão B: arremessar ou atacar">B</button>
+            <button class="face" type="button" data-btn="a" aria-label="Botão A: jogar, atirar ou pular">A</button>
           </div>
         </div>
-        <p class="demo-hint">Experimente: arraste o analógico, ou use as setas (ou WASD) e o espaço. Com um controle ligado ao PC, inclusive o Joyfone, ele comanda a demonstração.</p>
+        <p class="demo-hint" data-game-help>Mova com o analógico e segure A para atirar.</p>
+        <p class="demo-hint">No teclado: setas ou WASD, Espaço = A, X = B, P = pausa. Com um controle ligado ao PC, inclusive o Joyfone, ele também funciona.</p>
         <p class="pad-status" hidden></p>
-      </div>
-      <button class="video-toggle" type="button" data-video="hero-video">❚❚ Pausar vídeo de fundo</button>
+      </div>      <button class="video-toggle" type="button" data-video="hero-video">❚❚ Pausar vídeo de fundo</button>
     </div>
   </section>
 
@@ -282,5 +284,6 @@
 </footer>
 <script src="assets/vendor/qrcode.min.js"></script>
 <script src="assets/demo.js"></script>
+<script src="assets/games.js"></script>
 </body>
 </html>
