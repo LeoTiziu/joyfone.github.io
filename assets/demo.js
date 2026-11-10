@@ -230,6 +230,89 @@
     label();
   });
 
+  // ------------------------------------------------------------------ 4. Doação: valores, Pix e dólar
+  // Cada valor abre a cobrança Pix do Nubank correspondente (página com QR code e copia e cola).
+  // O QR code do site leva a esse link: no computador, a pessoa aponta a câmera do celular.
+  var DONATE = {
+    2: "https://nubank.com.br/cobrar/1k4bz/6af35490-6212-44c7-a0ef-4b4fbcf9821f",
+    5: "https://nubank.com.br/cobrar/1k4bz/6af354c3-b715-4eba-8af1-00329c628225",
+    10: "https://nubank.com.br/cobrar/1k4bz/6af3550d-ef3e-47c3-aa87-0f9ab0b30e5d",
+    50: "https://nubank.com.br/cobrar/1k4bz/6af3552d-7ed3-4758-976c-75d32e21add7",
+    100: "https://nubank.com.br/cobrar/1k4bz/6af35553-7b57-4628-97d2-d31eb75d4b07",
+  };
+  var amount = 5;
+  var usdPerBrl = null;
+
+  function brl(v) { return en ? "R$" + v.toFixed(2) : "R$ " + v.toFixed(2).replace(".", ","); }
+  function brlShort(v) { return en ? "R$" + v : "R$ " + v; }
+  function usd(v) {
+    var x = v * usdPerBrl;
+    return en ? "≈ US$" + x.toFixed(2) : "≈ US$ " + x.toFixed(2).replace(".", ",");
+  }
+
+  function renderDonation() {
+    var url = DONATE[amount];
+    document.querySelectorAll(".amount").forEach(function (b) {
+      b.setAttribute("aria-checked", String(Number(b.dataset.brl) === amount));
+    });
+    document.querySelectorAll("[data-donate-link]").forEach(function (a) { a.href = url; });
+    document.querySelectorAll("[data-donate-amount]").forEach(function (el) { el.textContent = brlShort(amount); });
+    document.querySelectorAll("[data-qr-amount]").forEach(function (el) {
+      el.textContent = brl(amount) + (usdPerBrl ? "  (" + usd(amount) + ")" : "");
+    });
+    if (typeof qrcode !== "function") return; // sem a biblioteca: fica só o botão
+    var qr = qrcode(0, "M");
+    qr.addData(url);
+    qr.make();
+    document.querySelectorAll("#pix-qr").forEach(function (box) {
+      box.innerHTML = qr.createSvgTag({ cellSize: 4, margin: 2, scalable: true });
+      box.setAttribute("aria-label", (en ? "QR code with the Pix donation link for " : "QR code com o link de doação Pix de ") + brl(amount));
+    });
+  }
+
+  document.querySelectorAll(".amount").forEach(function (b) {
+    b.addEventListener("click", function () { amount = Number(b.dataset.brl); renderDonation(); });
+    b.addEventListener("keydown", function (e) {
+      var list = Array.prototype.slice.call(document.querySelectorAll(".amount"));
+      var i = list.indexOf(b), d = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 }[e.key];
+      if (!d) return;
+      e.preventDefault();
+      var next = list[(i + d + list.length) % list.length];
+      next.focus();
+      next.click();
+    });
+  });
+
+  // Cotação do dólar do dia (serviço público, sem chave). Se falhar, os valores em dólar não aparecem.
+  function showRate(rate, when, source) {
+    usdPerBrl = rate;
+    document.querySelectorAll("[data-usd]").forEach(function (el) { el.textContent = usd(Number(el.dataset.usd)); });
+    document.querySelectorAll(".usd-inline").forEach(function (el) { el.textContent = " (" + el.textContent + ")"; });
+    var d = when ? new Date(when) : null;
+    var day = d && !isNaN(d) ? d.toLocaleDateString(en ? "en-US" : "pt-BR") : "";
+    document.querySelectorAll("[data-rate-note]").forEach(function (el) {
+      el.textContent = (en ? "Dollar values are estimates: US$1 = R$" : "Valores em dólar aproximados: US$ 1 = R$ ") +
+        (1 / rate).toFixed(2).replace(".", en ? "." : ",") + (day ? (en ? " on " : " em ") + day : "") + " (" + source + ").";
+    });
+    renderDonation();
+  }
+  if (document.querySelector("[data-usd]") && window.fetch) {
+    fetch("https://economia.awesomeapi.com.br/json/last/USD-BRL")
+      .then(function (r) { return r.json(); })
+      .then(function (j) {
+        var bid = parseFloat(j.USDBRL.bid);
+        if (!(bid > 0)) throw new Error("cotação inválida");
+        showRate(1 / bid, j.USDBRL.create_date.replace(" ", "T"), "AwesomeAPI");
+      })
+      .catch(function () {
+        return fetch("https://open.er-api.com/v6/latest/BRL")
+          .then(function (r) { return r.json(); })
+          .then(function (j) { if (j.rates && j.rates.USD > 0) showRate(j.rates.USD, j.time_last_update_unix * 1000, "ExchangeRate-API"); });
+      })
+      .catch(function () { /* sem cotação: só os valores em reais */ });
+  }
+  renderDonation();
+
   document.querySelectorAll('[data-demo="pad"]').forEach(padDemo);
   document.querySelectorAll('[data-demo="remote"]').forEach(remoteDemo);
 })();

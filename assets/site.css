@@ -189,6 +189,26 @@ section .wrap { padding-block: clamp(48px, 8vw, 88px); display: grid; gap: 28px;
 .caption { font-size: var(--s-1); color: var(--muted); }
 .head-split { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: 32px; align-items: center; }
 
+/* ---- Doação (Pix). O cartão do QR é sempre branco nos dois temas: leitores de QR precisam de fundo claro. */
+:root { --qr-paper: #ffffff; --qr-ink: #0f1218; }
+.donate { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr); gap: 36px; align-items: center; }
+.qr-card { margin: 0; justify-self: center; width: 100%; max-width: 300px; display: grid; gap: 12px; padding: 18px;
+  border-radius: var(--radius); background: var(--qr-paper); color: var(--qr-ink); border: 1px solid var(--line); }
+.qr-card img { width: 100%; aspect-ratio: 1; object-fit: contain; image-rendering: pixelated; }
+.qr-card figcaption { font-size: var(--s-1); line-height: 1.45; text-align: center; }
+.amounts { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 8px; }
+.amount { display: grid; gap: 2px; justify-items: center; padding: 10px 4px; border-radius: 12px; cursor: pointer;
+  border: 2px solid var(--line); background: var(--panel); color: var(--ink); font: inherit; min-width: 0; }
+.amount b { font: 700 var(--s0) var(--display); white-space: nowrap; }
+.amount span { font: 500 0.75rem var(--mono); color: var(--muted); white-space: nowrap; font-variant-numeric: tabular-nums; min-height: 1.2em; }
+.amount[aria-checked="true"] { border-color: var(--teal); background: color-mix(in srgb, var(--teal) 14%, var(--panel)); }
+.rate-note { min-height: 1.2em; color: var(--muted); }
+.usd-inline { font-variant-numeric: tabular-nums; }
+.qr-box svg { width: 100%; height: auto; display: block; }
+.qr-amount { text-align: center; font: 700 var(--s1) var(--display); margin: 0; max-width: none; }
+.qr-amount:empty { display: none; }
+@media (max-width: 480px) { .amounts { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+
 /* ---- Demonstrações interativas (TV e celular são "aparelhos": cores fixas nos dois temas) */
 :root { --device: #0b0e13; --screen: #101a22; --screen-2: #17303a; --key: #232c39; --key-fg: #e8eef0; }
 .demo { display: grid; gap: 14px; min-width: 0; outline: none; }
@@ -245,7 +265,7 @@ section .wrap { padding-block: clamp(48px, 8vw, 88px); display: grid; gap: 28px;
 .dpad [data-key="right"] { grid-area: 2 / 3; } .dpad [data-key="down"] { grid-area: 3 / 2; }
 
 @media (max-width: 860px) {
-  .hero .wrap, .split, .grid2, .grid3, .remote-demo, .head-split { grid-template-columns: minmax(0, 1fr); }
+  .hero .wrap, .split, .grid2, .grid3, .remote-demo, .head-split, .donate { grid-template-columns: minmax(0, 1fr); }
   .site-foot .wrap { grid-template-columns: minmax(0, 1fr); }
   .split figure { order: -1; max-width: 200px; }
   .hero .video-toggle { position: static; justify-self: start; }

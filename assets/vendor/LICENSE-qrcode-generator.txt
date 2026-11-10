@@ -1,0 +1,4 @@
+qrcode.min.js: qrcode-generator 1.4.4, por Kazuhiko Arase.
+Origem: https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js
+Projeto: https://github.com/kazuhikoarase/qrcode-generator
+Licença: MIT (https://opensource.org/licenses/MIT). "QR Code" é marca registrada da DENSO WAVE INCORPORATED.
