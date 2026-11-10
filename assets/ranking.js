@@ -31,6 +31,12 @@
   var adult = form.querySelector("#rank-adult");
   var consent = form.querySelector("#rank-consent");
   var email = form.querySelector("#rank-email");
+  var supporter = form.querySelector("#rank-supporter");
+  var supBox = panel.querySelector("[data-supporters]");
+  var supCount = panel.querySelector("[data-sup-count]");
+  var supNames = panel.querySelector("[data-sup-names]");
+  var ticker = document.querySelector("[data-phone-ticker]");
+  var tickerLines = [], tickerIdx = 0;
   var honey = form.querySelector("[name=website]");
   var current = "ship", pending = null, cache = {};
 
@@ -47,13 +53,49 @@
       li.appendChild(n); li.appendChild(s); list.appendChild(li);
     });
   }
+  // Apoiadores: o total de quem aceitou receber novidades e os apelidos de quem escolheu aparecer.
+  function renderSupporters(sup) {
+    if (!sup || !(sup.count > 0)) { supBox.hidden = true; return; }
+    supBox.hidden = false;
+    supCount.textContent = en
+      ? sup.count + (sup.count === 1 ? " player already gets Joyfone news." : " players already get Joyfone news.")
+      : sup.count + (sup.count === 1 ? " jogador já recebe as novidades do Joyfone." : " jogadores já recebem as novidades do Joyfone.");
+    supNames.textContent = "";
+    (sup.names || []).forEach(function (n) { var li = document.createElement("li"); li.textContent = n; supNames.appendChild(li); });
+  }
+
+  // Tela do celular desenhado: alterna o top 3 do jogo e os apoiadores.
+  function setTicker(game, top, sup) {
+    var lines = top.slice(0, 3).map(function (r, i) { return "🏆 " + (i + 1) + "º " + r.nick + " · " + r.score; });
+    if (sup && sup.names && sup.names.length) {
+      lines.push((en ? "💚 Thanks, " : "💚 Valeu, ") + sup.names.slice(0, 3).join(", ") + "!");
+    }
+    if (sup && sup.count > 0) lines.push("💚 " + sup.count + (en ? " supporters" : " apoiadores"));
+    tickerLines = lines;
+    tickerIdx = 0;
+    if (ticker && lines.length) ticker.textContent = lines[0];
+  }
+  if (ticker) setInterval(function () {
+    if (tickerLines.length < 2) return;
+    tickerIdx = (tickerIdx + 1) % tickerLines.length;
+    ticker.textContent = tickerLines[tickerIdx];
+  }, 2600);
+
+  function show(game, j) {
+    cache[game] = j;
+    if (current !== game) return;
+    render(game, j.top);
+    renderSupporters(j.supporters);
+    setTicker(game, j.top, j.supporters);
+  }
+
   function load(game) {
     current = game;
-    if (cache[game]) render(game, cache[game]);
+    if (cache[game]) show(game, cache[game]);
     else { title.textContent = T.title + " · " + T.names[game]; list.innerHTML = '<li class="rank-empty">' + T.loading + "</li>"; }
     fetch(ENDPOINT + "?game=" + encodeURIComponent(game))
       .then(function (r) { return r.json(); })
-      .then(function (j) { if (!j.ok) throw new Error(j.error); cache[game] = j.top; if (current === game) render(game, j.top); })
+      .then(function (j) { if (!j.ok) throw new Error(j.error); show(game, j); })
       .catch(function () { if (current === game && !cache[game]) list.innerHTML = '<li class="rank-empty">' + T.error + "</li>"; });
   }
 
@@ -61,7 +103,8 @@
   function syncEmail() {
     var ok = adult.checked && consent.checked;
     email.disabled = !ok;
-    if (!ok) email.value = "";
+    supporter.disabled = !ok;
+    if (!ok) { email.value = ""; supporter.checked = false; }
   }
   adult.addEventListener("change", syncEmail);
   consent.addEventListener("change", syncEmail);
@@ -85,7 +128,7 @@
     if (mail && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(mail)) { msg.textContent = T.mail; email.focus(); return; }
     try { localStorage.setItem("joyfone-nick", n); } catch (err) { /* sem armazenamento */ }
     var body = { game: pending.game, score: pending.score, nick: n, email: mail, adult: adult.checked, consent: consent.checked,
-                 lang: en ? "en" : "pt", website: honey.value };
+                 showSupporter: !!mail && supporter.checked, lang: en ? "en" : "pt", website: honey.value };
     var btn = form.querySelector("button[type=submit]");
     btn.disabled = true;
     msg.textContent = T.saving;
@@ -95,8 +138,7 @@
       .then(function (j) {
         if (!j.ok) throw new Error(j.error);
         msg.textContent = mail ? T.savedMail : T.saved;
-        cache[body.game] = j.top;
-        if (current === body.game) render(body.game, j.top);
+        show(body.game, j);
         pending = null;
         setTimeout(function () { form.hidden = true; }, 2500);
       })

@@ -55,7 +55,7 @@
         </div>
         <div class="phone">
           <div class="stick-zone" aria-hidden="true"><i class="stick-knob"></i></div>
-          <p class="phone-mid">Joyfone<br>Y pausa</p>
+          <p class="phone-mid">Joyfone<br><span data-phone-ticker>Y pausa</span></p>
           <div class="faces">
             <button class="face" type="button" data-btn="y" aria-label="Botão Y: pausa">Y</button>
             <button class="face" type="button" data-btn="x" aria-label="Botão X: igual ao B">X</button>
@@ -70,6 +70,11 @@
           <div class="rank-board">
             <h3 data-rank-title>Top 10</h3>
             <ol data-rank-list></ol>
+            <div class="rank-supporters" data-supporters hidden>
+              <h3>Apoiadores do Joyfone</h3>
+              <p class="sup-count" data-sup-count></p>
+              <ul class="sup-names" data-sup-names></ul>
+            </div>
           </div>
           <form class="rank-form" data-rank-form hidden novalidate>
             <p class="rank-score" data-rank-score></p>
@@ -77,6 +82,7 @@
             <input id="rank-nick" name="nick" maxlength="16" required autocomplete="nickname">
             <label class="check"><input type="checkbox" id="rank-adult"> Tenho 18 anos ou mais</label>
             <label class="check"><input type="checkbox" id="rank-consent"> Aceito receber novidades do Joyfone por e-mail. Posso cancelar quando quiser.</label>
+            <label class="check"><input type="checkbox" id="rank-supporter" disabled> Quero aparecer na lista pública de apoiadores do Joyfone (só o apelido).</label>
             <label for="rank-email">E-mail (opcional, libera com as duas caixas marcadas)</label>
             <input id="rank-email" name="email" type="email" maxlength="120" autocomplete="email" disabled>
             <input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
