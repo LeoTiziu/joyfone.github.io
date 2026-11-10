@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>How to connect Joyfone</title>
+<meta name="description" content="Step-by-step guide to connect Joyfone to a Windows PC and to a TV over Bluetooth.">
+<link rel="icon" href="../assets/logo.svg" type="image/svg+xml">
+<link rel="alternate" hreflang="pt-BR" href="../como-conectar.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Chakra+Petch:wght@600;700&family=JetBrains+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="index.html"><img src="../assets/logo.svg" alt="" width="36" height="36">Joyfone</a>
+    <nav class="nav" aria-label="Main">
+      <a href="index.html">Overview</a>
+      <a href="how-to.html" aria-current="page">How to connect</a>
+      <a href="faq.html">FAQ</a>
+      <a href="tester.html">Controller tester</a>
+      <a class="lang" href="../como-conectar.html" hreflang="pt-BR" lang="pt-BR">PT</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="band">
+    <div class="wrap">
+      <div class="head">
+        <h1>How to connect</h1>
+        <p>Install the app on your Android phone (version 9 or newer) and choose where to play: the PC or the TV. After installation, none of this uses the internet.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="tv">
+    <div class="wrap">
+      <div class="head">
+        <span class="tag">TV · nothing to install on the TV</span>
+        <h2>On the TV</h2>
+      </div>
+      <ol class="steps">
+        <li><p>On the phone, open Joyfone and tap <strong>TV remote and play on TV</strong>. On Android 12 or newer, allow “Nearby devices”.</p></li>
+        <li><p>Tap <strong>Become visible (2 min)</strong> and accept the Android prompt.</p></li>
+        <li><p>On the TV, open the Bluetooth settings. On Android TV and Google TV the path is usually <strong>Settings › Remotes &amp; accessories › Pair accessory</strong>. Pick your phone from the list.</p></li>
+        <li><p>Confirm the code on both devices. Joyfone shows “Connected to” with the TV name.</p></li>
+        <li><p>Use the remote, or tap <strong>Play on TV</strong> to use the game controller. Next time, just open TV mode and tap <strong>Connect</strong> next to the TV.</p></li>
+      </ol>
+      <p class="note">While TV mode is open, the TV sees your phone as a Bluetooth keyboard, media keys and game controller. When you leave TV mode, the app releases every key and removes that registration.</p>
+      <p class="note warn">Some phones do not let apps act as a Bluetooth accessory. In that case the app shows “HID Device profile unavailable” and TV mode does not work on that phone.</p>
+    </div>
+  </section>
+
+  <section id="pc" class="band">
+    <div class="wrap">
+      <div class="head">
+        <span class="tag">PC · Windows 10 (2004+) and 11</span>
+        <h2>On the PC</h2>
+        <p>The PC needs Bluetooth, the Joyfone Receiver and the free ViGEmBus driver.</p>
+      </div>
+      <ol class="steps">
+        <li><p>Install the ViGEmBus driver from the project's official releases page on GitHub (nefarius/ViGEmBus). Joyfone never installs drivers by itself and never asks you to turn off antivirus or Secure Boot.</p></li>
+        <li><p>Extract the receiver and open <strong>Joyfone.exe</strong>. It includes everything it needs to run and does not need administrator rights. Check that it shows “Joyfone service: advertised”.</p></li>
+        <li><p>Pair the phone with the PC once: in Windows, <strong>Settings › Bluetooth &amp; devices › Add device › Bluetooth</strong>, then confirm the code on both devices.</p></li>
+        <li><p>On the phone, open Joyfone, pick the PC from the paired list and tap <strong>Connect</strong>.</p></li>
+        <li><p>On the PC, click <strong>Allow this phone</strong>. You are only asked the first time.</p></li>
+        <li><p>On the phone, choose <strong>Xbox</strong> or <strong>PlayStation 4</strong>, the game mode, and tap <strong>Play</strong>.</p></li>
+      </ol>
+      <p class="note">Some games only detect the new controller after a restart. Games with anti-cheat may block virtual controllers. To check buttons and sticks, use the <a href="tester.html">controller tester</a>.</p>
+    </div>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div>
+      <a class="brand" href="index.html"><img src="../assets/logo.svg" alt="" width="36" height="36">Joyfone</a>
+      <p>Game controller and TV remote on your phone, over Bluetooth.</p>
+    </div>
+    <div>
+      <h3>Pages</h3>
+      <ul>
+        <li><a href="how-to.html">How to connect</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="tester.html">Controller tester</a></li>
+        <li><a href="privacy.html">Privacy</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3>Contact</h3>
+      <ul>
+        <li><a href="https://github.com/LeoTiziu/joyfone.github.io/issues">Contact us on GitHub</a></li>
+      </ul>
+    </div>
+    <p class="legal">© 2026 Leonardo Pereira. “Xbox”, “PlayStation”, “DualShock”, “Android TV” and “Google TV” are trademarks of their owners, mentioned only to describe compatibility. Joyfone is not affiliated with, sponsored or endorsed by them.</p>
+  </div>
+</footer>
+</body>
+</html>

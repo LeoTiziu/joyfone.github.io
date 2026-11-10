@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Joyfone FAQ</title>
+<meta name="description" content="Answers about Joyfone on the TV and on the PC: compatibility, pairing, players and privacy.">
+<link rel="icon" href="../assets/logo.svg" type="image/svg+xml">
+<link rel="alternate" hreflang="pt-BR" href="../faq.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Chakra+Petch:wght@600;700&family=JetBrains+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="index.html"><img src="../assets/logo.svg" alt="" width="36" height="36">Joyfone</a>
+    <nav class="nav" aria-label="Main">
+      <a href="index.html">Overview</a>
+      <a href="how-to.html">How to connect</a>
+      <a href="faq.html" aria-current="page">FAQ</a>
+      <a href="tester.html">Controller tester</a>
+      <a class="lang" href="../faq.html" hreflang="pt-BR" lang="pt-BR">PT</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="band">
+    <div class="wrap">
+      <div class="head">
+        <h1>Frequently asked questions</h1>
+        <p>Can't find your answer? Write to the contact in the footer.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap faq">
+      <h2 id="tv">On the TV</h2>
+      <details>
+        <summary>Which TVs does Joyfone work with?</summary>
+        <p>Devices that accept a Bluetooth keyboard and game controller. TVs and boxes running Android TV or Google TV usually accept both. Other smart TVs accept Bluetooth keyboards in part and do not always accept game controllers. TV mode is in beta and the list of tested devices is still being built.</p>
+      </details>
+      <details>
+        <summary>Do I need to install anything on the TV?</summary>
+        <p>No. The TV sees your phone as a regular Bluetooth accessory: keyboard, media keys and game controller.</p>
+      </details>
+      <details>
+        <summary>My phone does not show up in the TV's Bluetooth list. What can I do?</summary>
+        <p>Tap “Become visible (2 min)” in TV mode and search again on the TV within that time. Check that Bluetooth is on and that the app has the “Nearby devices” permission. If the app says “HID Device profile unavailable”, the phone maker does not let apps act as a Bluetooth accessory, and TV mode does not work on that phone.</p>
+      </details>
+      <details>
+        <summary>Which keys does the remote have?</summary>
+        <p>Arrows, OK, Back, Home, Menu, volume, mute, play/pause, previous and next. Holding a key keeps it pressed on the TV, which helps when scrolling lists or changing the volume.</p>
+      </details>
+      <details>
+        <summary>Can I use the PC and the TV at the same time?</summary>
+        <p>No. The app sends the controller to one place at a time. When you open TV mode, the PC gets the controller in neutral; when you leave TV mode, the TV is disconnected.</p>
+      </details>
+
+      <h2 id="pc">On the PC</h2>
+      <details>
+        <summary>Which PC games does it work with?</summary>
+        <p>Games that support Xbox (XInput) or DualShock 4 controllers. The receiver creates one of these virtual controllers in Windows. Some games with anti-cheat block virtual controllers.</p>
+      </details>
+      <details>
+        <summary>Why does the PC need ViGEmBus?</summary>
+        <p>It is the free third-party driver that lets the receiver create the virtual controller in Windows. Its authors have discontinued the ViGEmBus project; Joyfone uses it while alternatives are evaluated and never installs it by itself.</p>
+      </details>
+      <details>
+        <summary>How many phones can connect to one PC?</summary>
+        <p>Up to 4, each as a separate controller. The PC approves each phone on its first connection.</p>
+      </details>
+      <details>
+        <summary>Does the phone vibrate with the game?</summary>
+        <p>Yes, with the Xbox 360 profile. The phone has a single motor, so it cannot reproduce the two motors of a real controller.</p>
+      </details>
+      <details>
+        <summary>What happens if the connection drops mid-game?</summary>
+        <p>The PC releases every button right away, so nothing gets stuck, and the app tries to reconnect by itself.</p>
+      </details>
+
+      <h2 id="privacy">Account and privacy</h2>
+      <details>
+        <summary>Do I need an account or internet access?</summary>
+        <p>No. The app does not even request internet permission. Everything runs over Bluetooth between the phone and the PC or TV.</p>
+      </details>
+      <details>
+        <summary>Does Joyfone collect my data?</summary>
+        <p>No. There is no account, no ads and no telemetry. Your background photo and layouts stay on the phone. Details in the <a href="privacy.html">privacy policy</a>.</p>
+      </details>
+      <details>
+        <summary>Why does the app ask for “Nearby devices”?</summary>
+        <p>It is the Android 12+ permission to use Bluetooth devices that are already paired. In TV mode, Android also asks for permission to make the phone visible, only when you tap “Become visible”. The app does not scan for or track other devices and does not use location.</p>
+      </details>
+    </div>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div>
+      <a class="brand" href="index.html"><img src="../assets/logo.svg" alt="" width="36" height="36">Joyfone</a>
+      <p>Game controller and TV remote on your phone, over Bluetooth.</p>
+    </div>
+    <div>
+      <h3>Pages</h3>
+      <ul>
+        <li><a href="how-to.html">How to connect</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="tester.html">Controller tester</a></li>
+        <li><a href="privacy.html">Privacy</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3>Contact</h3>
+      <ul>
+        <li><a href="https://github.com/LeoTiziu/joyfone.github.io/issues">Contact us on GitHub</a></li>
+      </ul>
+    </div>
+    <p class="legal">© 2026 Leonardo Pereira. “Xbox”, “PlayStation”, “DualShock”, “Android TV” and “Google TV” are trademarks of their owners, mentioned only to describe compatibility. Joyfone is not affiliated with, sponsored or endorsed by them.</p>
+  </div>
+</footer>
+</body>
+</html>

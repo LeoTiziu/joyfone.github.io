@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Joyfone</title>
+<meta name="description" content="Joyfone turns your Android phone into a game controller for your PC and a remote and game controller for your TV, over Bluetooth.">
+<link rel="icon" href="../assets/logo.svg" type="image/svg+xml">
+<link rel="alternate" hreflang="pt-BR" href="../index.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Chakra+Petch:wght@600;700&family=JetBrains+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="index.html"><img src="../assets/logo.svg" alt="" width="36" height="36">Joyfone</a>
+    <nav class="nav" aria-label="Main">
+      <a href="index.html" aria-current="page">Overview</a>
+      <a href="how-to.html">How to connect</a>
+      <a href="faq.html">FAQ</a>
+      <a href="tester.html">Controller tester</a>
+      <a class="lang" href="../index.html" hreflang="pt-BR" lang="pt-BR">PT</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="band hero">
+    <video class="hero-video" id="hero-video" autoplay muted loop playsinline preload="metadata" poster="../assets/video/jogo-en.jpg" aria-hidden="true">
+      <source src="../assets/video/jogo-en.mp4" type="video/mp4">
+    </video>
+    <div class="wrap">
+      <div class="stack">
+        <span class="tag">Beta · Android 9+</span>
+        <h1>Your phone is the <span>controller</span> for your PC and TV.</h1>
+        <p class="lede">A full on-screen gamepad, a TV remote, and games on the TV. All over Bluetooth, with no internet and no account.</p>
+        <div class="actions">
+          <a class="btn" href="#download">Get the beta</a>
+          <a class="btn ghost" href="how-to.html">How to connect</a>
+        </div>
+        <p class="fine">Nothing to install on the TV. On a Windows PC, the free Joyfone Receiver makes the computer see your phone as a controller.</p>
+      </div>
+      <div class="demo" data-demo="pad" tabindex="0" aria-label="Demo: drag the stick or use the arrow keys to collect stars on the TV. Space boosts.">
+        <div class="tv-frame">
+          <div class="tv-screen">
+            <div class="arena"><i class="star" style="left:72%; top:35%"></i><i class="player" style="left:30%; top:55%"></i></div>
+            <span class="tv-hud">Stars: 0</span>
+          </div>
+        </div>
+        <div class="phone">
+          <div class="stick-zone" aria-hidden="true"><i class="stick-knob"></i></div>
+          <p class="phone-mid">Joyfone<br>drag the stick</p>
+          <div class="faces">
+            <button class="face" type="button" data-btn="y" aria-label="Y button: changes color">Y</button>
+            <button class="face" type="button" data-btn="x" aria-label="X button: changes color">X</button>
+            <button class="face" type="button" data-btn="b" aria-label="B button: changes color">B</button>
+            <button class="face" type="button" data-btn="a" aria-label="A button: boost">A</button>
+          </div>
+        </div>
+        <p class="demo-hint">Try it: drag the stick, or use the arrow keys (or WASD) and space. With a controller connected to your PC, Joyfone included, it drives the demo.</p>
+        <p class="pad-status" hidden></p>
+      </div>
+      <button class="video-toggle" type="button" data-video="hero-video">❚❚ Pause background video</button>
+    </div>
+  </section>
+
+  <section id="connect">
+    <div class="wrap">
+      <div class="head">
+        <h2>Two ways to connect</h2>
+        <p>The same app works with your computer and your TV. Pick one on the start screen.</p>
+      </div>
+      <div class="grid2">
+        <article class="card">
+          <span class="tag">PC · Windows 10 and 11</span>
+          <h3>Play on your computer</h3>
+          <p>The Windows receiver makes the PC see your phone as an Xbox 360 or DualShock 4 controller, so it works with games that support those controllers.</p>
+          <ul>
+            <li>Direct Bluetooth link, no Wi-Fi</li>
+            <li>The PC approves each phone the first time</li>
+            <li>Up to 4 phones on one PC</li>
+          </ul>
+          <p class="spec">Bluetooth RFCOMM · receiver + ViGEmBus driver</p>
+        </article>
+        <article class="card">
+          <span class="tag">TV · new</span>
+          <h3>Control and play on your TV</h3>
+          <p>Your phone shows up on the TV as a Bluetooth keyboard, media keys and game controller. Pair it once from the TV settings and you are done.</p>
+          <ul>
+            <li>Nothing to install on the TV</li>
+            <li>Remote with arrows, OK, volume and media keys</li>
+            <li>The same on-screen gamepad, now on the TV</li>
+          </ul>
+          <p class="spec">Bluetooth HID · Android TV and Google TV</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <div class="head">
+        <h2>A real controller on your screen</h2>
+        <p>Two sticks, a D-pad, analog triggers and every button, with multi-touch. Each mode has its own layout.</p>
+      </div>
+      <div class="grid3">
+        <article class="card">
+          <h3>Standard</h3>
+          <p>The full controller, for any genre.</p>
+          <p class="spec">2 sticks · D-pad · analog LT/RT</p>
+        </article>
+        <article class="card">
+          <h3>Racing</h3>
+          <p>Tilt the phone like a steering wheel to turn. Big triggers to accelerate and brake.</p>
+          <p class="spec">RT gas · LT brake · tilt steering</p>
+        </article>
+        <article class="card">
+          <h3>Gun</h3>
+          <p>Aim by moving the phone. A quick jerk reloads, and the phone vibrates on every shot.</p>
+          <p class="spec">gyro aiming · RT fire · LT aim</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="tv">
+    <div class="wrap">
+      <div class="head-split">
+        <div class="head">
+          <span class="tag">TV mode</span>
+          <h2>The remote that never gets lost in the couch</h2>
+          <p>The remote screen holds the keys you use every day. Hold an arrow to scroll a list, or hold volume to keep it going. When you want to play, tap “Play on TV” and the phone becomes a game controller.</p>
+        </div>
+        <figure class="video-card">
+          <video id="tv-video" autoplay muted loop playsinline preload="metadata" poster="../assets/video/controle-tv-en.jpg"
+                 aria-label="Animation: the phone navigates to Music, turns the volume up, pauses, goes back home and taps Play on TV.">
+            <source src="../assets/video/controle-tv-en.mp4" type="video/mp4">
+          </video>
+          <figcaption class="row">
+            <span class="caption">TV mode animation: browse, open, volume and Play on TV.</span>
+            <button class="video-toggle" type="button" data-video="tv-video">❚❚ Pause video</button>
+          </figcaption>
+        </figure>
+      </div>
+      <div class="remote-demo" data-demo="remote">
+        <div class="stack">
+          <div class="tv-frame">
+            <div class="tv-screen" tabindex="0" aria-label="Demo TV. Use the demo remote keys, or your arrow keys.">
+              <ul class="tiles">
+                <li class="tile">Videos</li><li class="tile">Movies</li><li class="tile">Shows</li>
+                <li class="tile">Music</li><li class="tile">Games</li><li class="tile">News</li>
+              </ul>
+              <div class="tv-open" hidden><strong></strong><span></span></div>
+              <div class="tv-vol" hidden><span></span><div class="bar"><i></i></div></div>
+            </div>
+          </div>
+          <p class="remote-live" aria-live="polite">Try the remote: arrows pick, OK opens.</p>
+        </div>
+        <div class="remote" role="group" aria-label="Demo remote">
+          <div class="rrow">
+            <button class="rkey" type="button" data-key="home">Home</button>
+            <button class="rkey" type="button" data-key="back">Back</button>
+            <button class="rkey" type="button" data-key="menu">Menu</button>
+          </div>
+          <div class="dpad">
+            <button class="rkey" type="button" data-key="up" aria-label="Up">▲</button>
+            <button class="rkey" type="button" data-key="left" aria-label="Left">◀</button>
+            <button class="rkey ok" type="button" data-key="ok">OK</button>
+            <button class="rkey" type="button" data-key="right" aria-label="Right">▶</button>
+            <button class="rkey" type="button" data-key="down" aria-label="Down">▼</button>
+          </div>
+          <div class="rrow">
+            <button class="rkey" type="button" data-key="voldown" aria-label="Volume down">VOL −</button>
+            <button class="rkey" type="button" data-key="mute">Mute</button>
+            <button class="rkey" type="button" data-key="volup" aria-label="Volume up">VOL +</button>
+          </div>
+          <div class="rrow">
+            <button class="rkey" type="button" data-key="play" aria-label="Play or pause" style="grid-column: 2">⏯</button>
+          </div>
+        </div>
+      </div>
+      <div class="stack">
+        <p class="note">TV mode works with devices that accept Bluetooth keyboards and controllers, such as TVs running Android TV or Google TV. Not every smart TV accepts a Bluetooth game controller. This feature is in beta; the list of tested TVs is in the <a href="faq.html#tv">FAQ</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <div class="head">
+        <h2>Make it yours</h2>
+      </div>
+      <div class="grid3">
+        <article class="card">
+          <h3>Layout editor</h3>
+          <p>Drag and resize every button, with a grid, undo, and a warning when buttons overlap.</p>
+        </article>
+        <article class="card">
+          <h3>12 skins or your photo</h3>
+          <p>Original themes such as Neon city, Race track and Galaxy, or any photo from your gallery as the background.</p>
+        </article>
+        <article class="card">
+          <h3>No account, no ads</h3>
+          <p>The app does not ask for internet access or an account. Your background photo and layouts stay on the phone.</p>
+        </article>
+      </div>
+      <p class="spec">English · Português · 中文 · Русский</p>
+    </div>
+  </section>
+
+  <section id="download">
+    <div class="wrap">
+      <div class="head">
+        <span class="tag">Beta</span>
+        <h2>Pick up your phone and play</h2>
+        <p>Joyfone is in beta. The Android app and the Windows receiver are on the project's releases page on GitHub.</p>
+      </div>
+      <div class="actions">
+        <a class="btn" href="https://github.com/LeoTiziu/joyfone.github.io/releases">Android app (APK)</a>
+        <a class="btn ghost" href="https://github.com/LeoTiziu/joyfone.github.io/releases">Windows receiver</a>
+      </div>
+      <p class="note">To install the APK, Android asks you to allow installs from this source. The Windows receiver also needs the free ViGEmBus driver; see <a href="how-to.html#pc">How to connect</a>.</p>
+    </div>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div>
+      <a class="brand" href="index.html"><img src="../assets/logo.svg" alt="" width="36" height="36">Joyfone</a>
+      <p>Game controller and TV remote on your phone, over Bluetooth.</p>
+    </div>
+    <div>
+      <h3>Pages</h3>
+      <ul>
+        <li><a href="how-to.html">How to connect</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="tester.html">Controller tester</a></li>
+        <li><a href="privacy.html">Privacy</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3>Contact</h3>
+      <ul>
+        <li><a href="https://github.com/LeoTiziu/joyfone.github.io/issues">Contact us on GitHub</a></li>
+      </ul>
+    </div>
+    <p class="legal">© 2026 Leonardo Pereira. “Xbox”, “PlayStation”, “DualShock”, “Android TV” and “Google TV” are trademarks of their owners, mentioned only to describe compatibility. Joyfone is not affiliated with, sponsored or endorsed by them.</p>
+  </div>
+</footer>
+<script src="../assets/demo.js"></script>
+</body>
+</html>
