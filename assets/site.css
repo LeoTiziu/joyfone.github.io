@@ -221,7 +221,26 @@ section .wrap { padding-block: clamp(48px, 8vw, 88px); display: grid; gap: 28px;
   color: var(--band-muted); font: 600 var(--s-1) var(--display); cursor: pointer; }
 .game-tabs button[aria-selected="true"] { background: var(--brand); border-color: var(--brand); color: #0f1218; }
 .game-canvas { display: block; width: 100%; height: 100%; touch-action: none; }
-.face { touch-action: none; user-select: none; -webkit-user-select: none; }.phone { display: flex; align-items: center; justify-content: space-between; gap: 12px; background: var(--device);
+.face { touch-action: none; user-select: none; -webkit-user-select: none; }.ranking { display: grid; gap: 14px; }
+.rank-board { background: #121922; border: 1px solid #253140; border-radius: var(--radius); padding: 14px 16px; }
+.rank-board h3 { font-size: var(--s0); color: var(--band-fg); margin-bottom: 8px; }
+.rank-board ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; font: 500 var(--s-1) var(--mono); }
+.rank-board li { display: flex; justify-content: space-between; gap: 12px; color: var(--band-fg); }
+.rank-board li:first-child .rank-nick { color: var(--brand); }
+.rank-nick { overflow-wrap: anywhere; min-width: 0; }
+.rank-pts { color: #ffd36b; font-variant-numeric: tabular-nums; }
+.rank-empty { color: var(--band-muted); }
+.rank-form { display: grid; gap: 8px; background: #121922; border: 1px solid var(--brand); border-radius: var(--radius); padding: 16px; }
+.rank-form label { font-size: var(--s-1); color: var(--band-fg); }
+.rank-form input[type="text"], .rank-form input:not([type]), .rank-form input[type="email"] { min-height: 40px; padding: 8px 12px; border-radius: 10px;
+  border: 1px solid #3a4757; background: #0c1015; color: var(--band-fg); font: inherit; width: 100%; }
+.rank-form input:disabled { opacity: 0.5; }
+.rank-form .check { display: flex; gap: 8px; align-items: flex-start; line-height: 1.4; }
+.rank-form .check input { margin-top: 3px; width: 18px; height: 18px; flex: none; accent-color: var(--brand); }
+.rank-form .btn { justify-self: start; }
+.rank-score { font: 700 var(--s1) var(--display); color: var(--brand); margin: 0; }
+.rank-msg { font-size: var(--s-1); color: var(--band-fg); min-height: 1.3em; margin: 0; }
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }.phone { display: flex; align-items: center; justify-content: space-between; gap: 12px; background: var(--device);
   border-radius: 26px; padding: 14px 22px; border: 3px solid #1c2430; }
 .stick-zone { width: 96px; height: 96px; border-radius: 50%; background: var(--key); display: grid; place-items: center;
   touch-action: none; cursor: grab; flex: none; }

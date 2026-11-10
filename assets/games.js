@@ -493,13 +493,15 @@
     b.addEventListener("click", function (e) { if (e.detail === 0) { down(); setTimeout(up, 150); } }); // teclado/leitor de tela
   });
 
+  function typing(e) { return /^(INPUT|TEXTAREA|SELECT)$/.test(e.target.tagName); }
   root.addEventListener("keydown", function (e) {
+    if (typing(e)) return; // digitando no formulário do ranking: as teclas não vão para o jogo
     if (e.target.closest("button") && (e.key === " " || e.key === "Enter")) return;
     var k = e.key.toLowerCase();
     var handled = ["arrowup", "arrowdown", "arrowleft", "arrowright", "w", "a", "s", "d", " ", "enter", "z", "j", "x", "k", "p", "escape"];
     if (handled.indexOf(k) >= 0) { keys[k] = true; e.preventDefault(); }
   });
-  root.addEventListener("keyup", function (e) { delete keys[e.key.toLowerCase()]; });
+  root.addEventListener("keyup", function (e) { if (!typing(e)) delete keys[e.key.toLowerCase()]; });
   root.addEventListener("focusout", function (e) { if (!root.contains(e.relatedTarget)) keys = {}; });
   canvas.addEventListener("pointerdown", function () { root.focus({ preventScroll: true }); });
 
@@ -539,6 +541,7 @@
     tabs.forEach(function (t) { var on = t.dataset.game === name; t.setAttribute("aria-selected", String(on)); t.tabIndex = on ? 0 : -1; });
     if (help) help.textContent = T.help[name];
     draw(0);
+    root.dispatchEvent(new CustomEvent("joyfone:select", { detail: { game: name } }));
   }
   tabs.forEach(function (t) {
     t.addEventListener("click", function () { select(t.dataset.game); root.focus({ preventScroll: true }); });
@@ -585,6 +588,7 @@
           if (game.over) {
             mode = "over";
             if (game.score > game.best) { game.best = game.score; saveBest(game.key, game.score); }
+            root.dispatchEvent(new CustomEvent("joyfone:gameover", { detail: { game: game.key, score: game.score } }));
           }
         }
       }

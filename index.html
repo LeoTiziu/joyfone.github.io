@@ -66,6 +66,25 @@
         <p class="demo-hint" data-game-help>Mova com o analógico e segure A para atirar.</p>
         <p class="demo-hint">No teclado: setas ou WASD, Espaço = A, X = B, P = pausa. Com um controle ligado ao PC, inclusive o Joyfone, ele também funciona.</p>
         <p class="pad-status" hidden></p>
+        <div class="ranking" data-ranking hidden>
+          <div class="rank-board">
+            <h3 data-rank-title>Top 10</h3>
+            <ol data-rank-list></ol>
+          </div>
+          <form class="rank-form" data-rank-form hidden novalidate>
+            <p class="rank-score" data-rank-score></p>
+            <label for="rank-nick">Apelido no ranking</label>
+            <input id="rank-nick" name="nick" maxlength="16" required autocomplete="nickname">
+            <label class="check"><input type="checkbox" id="rank-adult"> Tenho 18 anos ou mais</label>
+            <label class="check"><input type="checkbox" id="rank-consent"> Aceito receber novidades do Joyfone por e-mail. Posso cancelar quando quiser.</label>
+            <label for="rank-email">E-mail (opcional, libera com as duas caixas marcadas)</label>
+            <input id="rank-email" name="email" type="email" maxlength="120" autocomplete="email" disabled>
+            <input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+            <button class="btn" type="submit">Salvar no ranking</button>
+            <p class="rank-msg" data-rank-msg aria-live="polite"></p>
+            <p class="fine">O apelido aparece no ranking público. O e-mail nunca aparece no site. <a href="privacidade.html#ranking">Como usamos esses dados</a></p>
+          </form>
+        </div>
       </div>      <button class="video-toggle" type="button" data-video="hero-video">❚❚ Pausar vídeo de fundo</button>
     </div>
   </section>
@@ -285,5 +304,6 @@
 <script src="assets/vendor/qrcode.min.js"></script>
 <script src="assets/demo.js"></script>
 <script src="assets/games.js"></script>
+<script src="assets/ranking.js"></script>
 </body>
 </html>
