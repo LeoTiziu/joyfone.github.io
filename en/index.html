@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Joyfone</title>
-<meta name="description" content="Joyfone turns your Android phone into a game controller for your PC and a remote and game controller for your TV, over Bluetooth.">
+<meta name="description" content="Joyfone turns your Android phone into a game controller for your PC, over Bluetooth.">
 <link rel="icon" href="../assets/logo.svg" type="image/svg+xml">
 <link rel="alternate" hreflang="pt-BR" href="../index.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -36,13 +36,13 @@
     <div class="wrap">
       <div class="stack">
         <span class="tag">Beta · Android 9+</span>
-        <h1>Your phone is the <span>controller</span> for your PC and TV.</h1>
-        <p class="lede">A full on-screen gamepad, a TV remote, and games on the TV. All over Bluetooth, with no internet and no account.</p>
+        <h1>Your phone is the <span>controller</span> for your PC.</h1>
+        <p class="lede">A full on-screen gamepad for PC gaming. All over Bluetooth, with no internet and no account.</p>
         <div class="actions">
           <a class="btn" href="#download">Get the beta</a>
           <a class="btn ghost" href="how-to.html">How to connect</a>
         </div>
-        <p class="fine">Nothing to install on the TV. On a Windows PC, the free Joyfone Receiver makes the computer see your phone as a controller.</p>
+        <p class="fine">On a Windows PC, the free Joyfone Receiver makes the computer see your phone as a controller.</p>
       </div>
       <div class="demo" data-games tabindex="0" aria-label="Mini games: use the drawn phone's stick and buttons, the keyboard arrows and space, or a controller.">
         <div class="game-tabs" role="tablist" aria-label="Mini games">
@@ -98,8 +98,8 @@
   <section id="connect">
     <div class="wrap">
       <div class="head">
-        <h2>Two ways to connect</h2>
-        <p>The same app works with your computer and your TV. Pick one on the start screen.</p>
+        <h2>How to connect</h2>
+        <p>The free Windows receiver links your phone to the computer over Bluetooth.</p>
       </div>
       <div class="grid2">
         <article class="card">
@@ -112,17 +112,6 @@
             <li>Up to 4 phones on one PC</li>
           </ul>
           <p class="spec">Bluetooth RFCOMM · receiver + ViGEmBus driver</p>
-        </article>
-        <article class="card">
-          <span class="tag">TV · new</span>
-          <h3>Control and play on your TV</h3>
-          <p>Your phone shows up on the TV as a Bluetooth keyboard, media keys and game controller. Pair it once from the TV settings and you are done.</p>
-          <ul>
-            <li>Nothing to install on the TV</li>
-            <li>Remote with arrows, OK, volume and media keys</li>
-            <li>The same on-screen gamepad, now on the TV</li>
-          </ul>
-          <p class="spec">Bluetooth HID · Android TV and Google TV</p>
         </article>
       </div>
     </div>
@@ -150,68 +139,6 @@
           <p>Aim by moving the phone. A quick jerk reloads, and the phone vibrates on every shot.</p>
           <p class="spec">gyro aiming · RT fire · LT aim</p>
         </article>
-      </div>
-    </div>
-  </section>
-
-  <section id="tv">
-    <div class="wrap">
-      <div class="head-split">
-        <div class="head">
-          <span class="tag">TV mode</span>
-          <h2>The remote that never gets lost in the couch</h2>
-          <p>The remote screen holds the keys you use every day. Hold an arrow to scroll a list, or hold volume to keep it going. When you want to play, tap “Play on TV” and the phone becomes a game controller.</p>
-        </div>
-        <figure class="video-card">
-          <video id="tv-video" autoplay muted loop playsinline preload="metadata" poster="../assets/video/controle-tv-en.jpg"
-                 aria-label="Animation: the phone navigates to Music, turns the volume up, pauses, goes back home and taps Play on TV.">
-            <source src="../assets/video/controle-tv-en.mp4" type="video/mp4">
-          </video>
-          <figcaption class="row">
-            <span class="caption">TV mode animation: browse, open, volume and Play on TV.</span>
-            <button class="video-toggle" type="button" data-video="tv-video">❚❚ Pause video</button>
-          </figcaption>
-        </figure>
-      </div>
-      <div class="remote-demo" data-demo="remote">
-        <div class="stack">
-          <div class="tv-frame">
-            <div class="tv-screen" tabindex="0" aria-label="Demo TV. Use the demo remote keys, or your arrow keys.">
-              <ul class="tiles">
-                <li class="tile">Videos</li><li class="tile">Movies</li><li class="tile">Shows</li>
-                <li class="tile">Music</li><li class="tile">Games</li><li class="tile">News</li>
-              </ul>
-              <div class="tv-open" hidden><strong></strong><span></span></div>
-              <div class="tv-vol" hidden><span></span><div class="bar"><i></i></div></div>
-            </div>
-          </div>
-          <p class="remote-live" aria-live="polite">Try the remote: arrows pick, OK opens.</p>
-        </div>
-        <div class="remote" role="group" aria-label="Demo remote">
-          <div class="rrow">
-            <button class="rkey" type="button" data-key="home">Home</button>
-            <button class="rkey" type="button" data-key="back">Back</button>
-            <button class="rkey" type="button" data-key="menu">Menu</button>
-          </div>
-          <div class="dpad">
-            <button class="rkey" type="button" data-key="up" aria-label="Up">▲</button>
-            <button class="rkey" type="button" data-key="left" aria-label="Left">◀</button>
-            <button class="rkey ok" type="button" data-key="ok">OK</button>
-            <button class="rkey" type="button" data-key="right" aria-label="Right">▶</button>
-            <button class="rkey" type="button" data-key="down" aria-label="Down">▼</button>
-          </div>
-          <div class="rrow">
-            <button class="rkey" type="button" data-key="voldown" aria-label="Volume down">VOL −</button>
-            <button class="rkey" type="button" data-key="mute">Mute</button>
-            <button class="rkey" type="button" data-key="volup" aria-label="Volume up">VOL +</button>
-          </div>
-          <div class="rrow">
-            <button class="rkey" type="button" data-key="play" aria-label="Play or pause" style="grid-column: 2">⏯</button>
-          </div>
-        </div>
-      </div>
-      <div class="stack">
-        <p class="note">TV mode works with devices that accept Bluetooth keyboards and controllers, such as TVs running Android TV or Google TV. Not every smart TV accepts a Bluetooth game controller. This feature is in beta; the list of tested TVs is in the <a href="faq.html#tv">FAQ</a>.</p>
       </div>
     </div>
   </section>
@@ -247,7 +174,7 @@
         <p>Joyfone is in beta. Get the app on your Android phone and, if you play on a PC, the Windows receiver. Older versions and notes: <a href="https://github.com/LeoTiziu/joyfone.github.io/releases">releases page</a>.</p>
       </div>
       <div class="actions">
-        <a class="btn" href="https://github.com/LeoTiziu/joyfone.github.io/releases/latest/download/Joyfone.apk">Download Android app (APK, 19 MB)</a>
+        <a class="btn" href="https://github.com/LeoTiziu/joyfone.github.io/releases/latest/download/Joyfone_app.apk">Download Android app (APK, 19 MB)</a>
         <a class="btn ghost" href="https://github.com/LeoTiziu/joyfone.github.io/releases/latest/download/Joyfone-Receptor-win-x64.zip">Download Windows receiver (67 MB)</a>
       </div>
       <p class="note">To install the APK, Android asks you to allow installs from this source. The Windows receiver comes as a .zip: extract it and open Joyfone.exe. It also needs the free ViGEmBus driver; see <a href="how-to.html#pc">How to connect</a>.</p>
@@ -260,7 +187,7 @@
         <span class="tag">Support · any amount</span>
         <h2>One dollar keeps Joyfone ad-free</h2>
         <p>No ads popping up mid-game. No selling your data. No account to create. Joyfone is made by an independent developer, and we want to keep it that way.</p>
-        <p>If the app ever saved you from digging for the controller under the couch, chip in about <strong>US$1</strong> (R$ 5). If everyone who uses Joyfone does it once, the app stays ad-free and keeps getting new versions, like the tested-TV list. Donations use Pix, Brazil's instant payment system.</p>
+        <p>If the app ever saved you from digging for the controller under the couch, chip in about <strong>US$1</strong> (R$ 5). If everyone who uses Joyfone does it once, the app stays ad-free and keeps getting new versions. Donations use Pix, Brazil's instant payment system.</p>
         <div class="amounts" role="radiogroup" aria-label="Donation amount">
           <button type="button" class="amount" role="radio" aria-checked="false" data-brl="2"><b>R$ 2</b><span data-usd="2"></span></button>
           <button type="button" class="amount" role="radio" aria-checked="true" data-brl="5"><b>R$ 5</b><span data-usd="5"></span></button>
@@ -287,7 +214,7 @@
   <div class="wrap">
     <div>
       <a class="brand" href="index.html"><img src="../assets/logo.svg" alt="" width="36" height="36">Joyfone</a>
-      <p>Game controller and TV remote on your phone, over Bluetooth.</p>
+      <p>Game controller on your phone, over Bluetooth.</p>
     </div>
     <div>
       <h3>Pages</h3>
@@ -304,7 +231,7 @@
         <li><a href="https://github.com/LeoTiziu/joyfone.github.io/issues">Contact us on GitHub</a></li>
       </ul>
     </div>
-    <p class="legal">© 2026 Leonardo Pereira. “Xbox”, “PlayStation”, “DualShock”, “Android TV” and “Google TV” are trademarks of their owners, mentioned only to describe compatibility. Joyfone is not affiliated with, sponsored or endorsed by them.</p>
+    <p class="legal">© 2026 Leonardo Pereira. “Xbox”, “PlayStation” and “DualShock” are trademarks of their owners, mentioned only to describe compatibility. Joyfone is not affiliated with, sponsored or endorsed by them.</p>
   </div>
 </footer>
 <script src="../assets/vendor/qrcode.min.js"></script>
