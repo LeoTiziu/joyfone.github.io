@@ -19,7 +19,7 @@
   --body: "Atkinson Hyperlegible", "Segoe UI", system-ui, sans-serif;
   --mono: "JetBrains Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
 
-  --s-1: 0.875rem; --s0: 1.0625rem; --s1: 1.3rem; --s2: 1.7rem; --s3: 2.4rem; --s4: clamp(2.4rem, 6vw, 3.8rem);
+  --s-1: 0.95rem; --s0: 1.125rem; --s1: 1.4rem; --s2: 1.85rem; --s3: clamp(2rem, 4vw, 2.8rem); --s4: clamp(2.6rem, 6.5vw, 4.4rem);
   --radius: 14px;
   --pill: 999px;
 }
@@ -50,15 +50,15 @@ h1, h2, h3 { font-family: var(--display); line-height: 1.12; text-wrap: balance;
 h1 { font-size: var(--s4); font-weight: 700; }
 h2 { font-size: var(--s3); font-weight: 700; }
 h3 { font-size: var(--s1); font-weight: 600; }
-p { margin: 0; max-width: 65ch; }
+p { margin: 0; max-width: 72ch; }
 
 .skip { position: absolute; left: -999px; top: 8px; background: var(--panel); color: var(--ink); padding: 8px 12px; z-index: 20; }
 .skip:focus { left: max(16px, env(safe-area-inset-left, 0px)); }
 
 .wrap {
-  max-width: 1080px; margin: 0 auto;
-  padding-left: max(16px, env(safe-area-inset-left, 0px));
-  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  max-width: 1280px; margin: 0 auto;
+  padding-left: max(clamp(16px, 3vw, 36px), env(safe-area-inset-left, 0px));
+  padding-right: max(clamp(16px, 3vw, 36px), env(safe-area-inset-right, 0px));
 }
 
 /* ---- Cabeçalho */
@@ -95,23 +95,25 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .band { background: var(--band); color: var(--band-fg); }
 .band p { color: var(--band-muted); }
 [id] { scroll-margin-top: calc(72px + env(safe-area-inset-top, 0px)); } /* link para seção não fica sob o cabeçalho fixo */
-section .wrap { padding-block: clamp(48px, 8vw, 88px); display: grid; gap: 28px; }
+section .wrap { padding-block: clamp(24px, 3.4vw, 44px); display: grid; gap: 20px; }
+/* Duas seções claras seguidas: o espaço entre elas não dobra. */
+main > section:not(.band) + section:not(.band) > .wrap { padding-top: clamp(8px, 1.5vw, 20px); }
 
-.hero .wrap { grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); align-items: center; padding-block: clamp(36px, 6vw, 72px); }
+.hero .wrap { grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); gap: clamp(24px, 3vw, 44px); align-items: center; padding-block: clamp(26px, 4vw, 52px); }
 .hero h1 span { color: var(--brand); }
 .hero .lede { font-size: var(--s1); line-height: 1.5; }
 .stack { display: grid; gap: 20px; min-width: 0; align-content: start; }
 .hero .fine { font-size: var(--s-1); }
 
-.head { display: grid; gap: 10px; max-width: 70ch; }
+.head { display: grid; gap: 10px; max-width: 82ch; }
 .head p { color: var(--muted); }
 .band .head p { color: var(--band-muted); }
 
-.grid2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
-.grid3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.grid2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+.grid3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
 .card {
   background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius);
-  padding: 22px; display: grid; gap: 10px; align-content: start; min-width: 0;
+  padding: clamp(20px, 2.2vw, 30px); display: grid; gap: 10px; align-content: start; min-width: 0;
 }
 .card p, .card li { color: var(--muted); }
 .card ul { margin: 0; padding-left: 1.1em; display: grid; gap: 4px; }
@@ -138,7 +140,7 @@ section .wrap { padding-block: clamp(48px, 8vw, 88px); display: grid; gap: 28px;
 
 .faq { display: grid; gap: 10px; }
 .faq details { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 0 18px; }
-.faq summary { cursor: pointer; font: 600 var(--s0) var(--display); padding: 16px 0; list-style-position: outside; }
+.faq summary { cursor: pointer; font: 600 var(--s0) var(--display); padding: 16px 0; list-style-position: inside; }
 .faq details p { color: var(--muted); padding-bottom: 16px; }
 .faq h2 { font-size: var(--s2); margin-top: 18px; }
 
